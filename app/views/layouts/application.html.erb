@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Playground</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,3 +18,10 @@
     <%= yield %>
   </body>
 </html>
+
+<script>
+  /* enable Bootstrap tooltips */
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>

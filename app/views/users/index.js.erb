@@ -1,0 +1,36 @@
+
+/* render table with newly-sorted list */
+document.getElementById("users-body").innerHTML = "<%= j render @users %>";
+
+/* update all table heading links, so that ascend/descend sort works */
+var sort_char = "<%= @sort_by %>".charAt(0);
+
+var name_link = document.getElementById("name-link");
+name_link.href = "<%= users_path(sort_by: "#{@name_sort}") %>";
+name_link.classList.remove("border-sorted");
+name_link.classList.remove("border-not-sorted");
+if( sort_char == "n") {
+  name_link.classList.add("border-sorted");
+} else {
+  name_link.classList.add("border-not-sorted");
+}
+
+var email_link = document.getElementById("email-link");
+email_link.href = "<%= users_path(sort_by: "#{@email_sort}") %>";
+email_link.classList.remove("border-sorted");
+email_link.classList.remove("border-not-sorted");
+if( sort_char == "e") {
+  email_link.classList.add("border-sorted");
+} else {
+  email_link.classList.add("border-not-sorted");
+}
+
+var stars_link = document.getElementById("stars-link");
+stars_link.href = "<%= users_path(sort_by: "#{@stars_sort}") %>"
+stars_link.classList.remove("border-sorted");
+stars_link.classList.remove("border-not-sorted");
+if( sort_char == "s") {
+  stars_link.classList.add("border-sorted");
+} else {
+  stars_link.classList.add("border-not-sorted");
+}

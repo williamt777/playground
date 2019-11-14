@@ -62,6 +62,7 @@ end
 
 # BILL: added these
 gem 'bootstrap', '~> 4.3'
+gem 'jquery-rails'
 gem 'pg', '~> 1.1'
 #group :production do
 #  gem 'pg', '~> 1.1'

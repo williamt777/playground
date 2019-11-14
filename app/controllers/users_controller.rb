@@ -1,10 +1,42 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :increment, :clear]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # default is sort by name, ascending
+    @sort_by = "nA"
+    @sort_by = params["sort_by"] if params["sort_by"].present?
+
+    # set sorts for next call
+    @name_sort = "nA"
+    @email_sort = "eA"
+    @stars_sort = "sA"
+
+    case @sort_by
+    when "nA"
+      @users = User.order("name ASC")
+      @name_sort = "nD"
+    when "nD"
+      @users = User.order("name DESC")
+    when "eA"
+      @users = User.order("email ASC")
+      @email_sort = "eD"
+    when "eD"
+      @users = User.order("email DESC")
+    when "sA"
+      @users = User.order("stars DESC")
+      @stars_sort = "sD"
+    when "sD"
+      @users = User.order("stars ASC")
+    else
+      @users = User.order("name ASC")
+    end
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /users/1
@@ -58,6 +90,25 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  # PATCH /users/1/increment
+  def increment
+    @user.increment!( :stars)
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'Increment ok'}
+      format.js
+    end
+  end
+
+  # PATCH /users/1/clear
+  def clear
+    @user.stars = 0
+    @user.save
+    respond_to do |format|
+      format.html { redirect_to users_path, notice: 'Stars are now zero'}
+      format.js
     end
   end
 
