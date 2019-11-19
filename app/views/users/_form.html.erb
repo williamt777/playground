@@ -26,6 +26,15 @@
     <%= form.number_field :stars %>
   </div>
 
+  <div class="field">
+    <%= form.label :comment %>
+    <br>
+    <div class="ml-5">
+      <% num_rows = ux_textarea_rows(user.comment, max_rows: 5) %>
+      <%= form.text_area :comment, rows: num_rows, style: "width: 60%;" %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
