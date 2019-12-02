@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  require "csv"
+
   before_action :set_user, only: [:show, :edit, :update, :destroy, :increment, :clear]
 
   # GET /users
@@ -112,6 +114,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def import_csv
+  end
+
+  def update_csv
+    @user_csv_guy = UserCsvGuy.new(params[:csv_data])
+    respond_to do |format|
+      format.js
+    end
+#    render "import_csv2"
+  end
+
+  def import_csv2
+  end
+
+  def update_csv2
+    # really add the CSV data to the session here
+    @user_csv_guy = UserCsvGuy.new(params[:import_str])
+    @user_csv_guy.accept_rows
+
+    redirect_to import_csv_path, notice: 'CSV data accepted'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -120,6 +144,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :stars, :comment)
+      params.require(:user).permit(:name, :email, :stars, :party_time, :comment)
     end
+
 end

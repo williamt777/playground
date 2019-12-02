@@ -1,0 +1,25 @@
+<!-- Ajax code for import CSV, part 1 -->
+<!-- This code is loaded with the import CSV page -->
+<p>
+  Step 1: Enter data. Copy-paste your CSV data.
+</p>
+
+<%= form_with(url: import_csv_path, method: 'patch', remote: true) do |form| %>
+
+  <!-- text area for the CSV copy-paste -->
+  <div class="field">
+    <%= form.text_area :csv_data, rows: 10,
+                       :placeholder => "my default value",
+                       :value => "Email,Party time,Stars\n",
+                       style: "padding: 8px; width: 100%; border-radius: 8px;" %>
+  </div>
+
+  <!-- ok button -->
+  <div class="actions mt-3">
+    <%= form.submit "1. Enter data", class: "btn btn-outline-secondary" %>
+    &nbsp;
+    <%= link_to "2. Accept", "#", class: "btn btn-outline-secondary disabled" %>
+    <%= link_to "Clear", import_csv_path, class: "btn btn-outline-primary float-right" %>
+  </div>
+
+ <% end %>

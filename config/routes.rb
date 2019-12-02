@@ -6,5 +6,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'import_csv', to: 'users#import_csv'
+  patch 'import_csv', to: 'users#update_csv'
+  get 'import_csv2', to: 'users#import_csv2'
+  patch 'import_csv2', to: 'users#update_csv2'
+
   root 'users#index'
 end

@@ -1,2 +1,22 @@
 
 .text-play-sm { font-size: 0.8rem; }
+
+/* excellent fade in */
+@keyframes fadeInAnimation {
+  0% { opacity: 0; }
+  100% { opacity: 100%; }
+}
+.div-hb-fade {
+  animation-name: fadeInAnimation;
+  animation-duration: 1s;
+}
+
+.div-hb-fade-sm {
+  animation-name: fadeInAnimation;
+  animation-duration: 0.5s;
+}
+
+.div-hb-fade-lg {
+  animation-name: fadeInAnimation;
+  animation-duration: 2s;
+}

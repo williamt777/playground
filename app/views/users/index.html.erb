@@ -44,7 +44,9 @@
                                id: "email-link", class: "border-not-sorted" %></th>
       <th><%= link_to 'Stars', users_path(sort_by: "sA"), remote: true,
                                id: "stars-link", class: "border-not-sorted" %></th>
-      <th colspan="4" class="text-center">Actions</th>
+      <th>Party time</th>
+      <th>+/-</th>
+      <th class="text-center">Actions</th>
     </tr>
   </thead>
 
@@ -55,7 +57,11 @@
 </table>
 
 <br>
-<%= link_to 'New User', new_user_path, class: "mt-4" %>
+<div class="mt-4">
+  <%= link_to 'New User', new_user_path, class: "btn btn-outline-success" %>
+  &nbsp; &nbsp;
+  <%= link_to 'Import CSV', import_csv_path, class: "btn btn-outline-secondary" %>
+</div>
 
     </div>
   </div>
