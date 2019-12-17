@@ -1,15 +1,15 @@
-<h1>Editing User</h1>
-
 <div class="container">
   <div class="row mt-5">
     <div class="col">
 
+<h2 class="mb-3">Edit User</h2>
+
 <%= render 'form', user: @user %>
+
+<br>
+<%= link_to 'Show', @user %> |
+<%= link_to 'Index', users_path %>
 
     </div>
   </div>
 </div>
-
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

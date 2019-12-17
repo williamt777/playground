@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   require "csv"
+  include UsersHelper
 
   before_action :set_user, only: [:show, :edit, :update, :destroy, :increment, :clear]
 
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @user.party_started_at = Time.zone.now if @user.party_started_at.nil?
   end
 
   # POST /users
@@ -74,6 +76,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    # update party start and end times
+    dt_hash = ux_calc_party_times(params[:user][:party_started_at], 
+                                  params[:user][:party_start_time], 
+                                  params[:user][:party_duration])
+    @user.party_started_at = dt_hash[:start]
+    @user.party_ended_at = dt_hash[:end]
+    @user.save
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -144,7 +154,8 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :stars, :party_time, :comment)
+      params.require(:user).permit(:name, :email, :stars, :comment)
+#                     :party_started_at, :party_start_time, :party_duration)
     end
 
 end

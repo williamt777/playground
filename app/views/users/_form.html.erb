@@ -11,36 +11,101 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="form-row">
+    <!-- name attr -->
+    <div class="form-group col-md-6">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :stars %>
-    <%= form.number_field :stars %>
-  </div>
-
-  <div class="field">
-    <%= form.label :party_time %>
-    <%= form.date_field :party_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :comment %>
-    <br>
-    <div class="ml-5">
-      <% num_rows = ux_textarea_rows(user.comment, max_rows: 5) %>
-      <%= form.text_area :comment, rows: num_rows, style: "width: 60%;" %>
+    <!-- email attr -->
+    <div class="form-group col-md-6">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: 'form-control' %>
     </div>
   </div>
 
+  <!-- stars attr -->
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :stars %>
+      <%= form.number_field :stars, class: 'form-control' %>
+    </div>
+  </div>
+
+<style>
+  .bg-white-flatpickr { background-color: white !important; }
+</style>
+
+  <!-- party started_at attr, uses flatpickr to choose date -->
+  <div class="row">
+    <div class="col-md-4">
+      <%= form.label "Party date" %>
+      <div class="input-group mb-3">
+        <%= form.text_field :party_started_at, id: 'party-date', 
+                            class: 'form-control bg-white-flatpickr' %>
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label "Party start time" %>
+      <div class="input-group mb-3">
+        <%= form.text_field :party_start_time, id: 'party-time', value: "9:00",
+                            class: 'form-control bg-white-flatpickr' %>
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2"><i class="far fa-clock"></i></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label "Duration" %>
+      <%= form.select :party_duration, 
+                      options_for_select(ux_party_duration_choices(), '30 minutes'), 
+                      {}, class: "form-control" %>
+    </div>
+  </div>
+
+  <!-- comment attr, a text box -->
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <%= form.label :comment %>
+      <br>
+      <div>
+        <% num_rows = ux_textarea_rows(user.comment, max_rows=5) %>
+        <%= form.text_area :comment, rows: num_rows, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <!-- ok button -->
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Update user", class: "btn btn-outline-secondary" %>
   </div>
 <% end %>
+
+
+
+<script type="text/javascript">
+
+  flatpickr("#party-date", {
+    altInput: true,
+    altFormat: "D M j, Y",
+    dateFormat: "Y-m-d",
+  });
+
+
+  flatpickr("#party-time", {
+    altInput: true,
+    altFormat: "h:i K",
+    dateFormat: "H:i",
+    enableTime: true,
+    noCalendar: true,
+    defaultHour: 9,
+    defaultMinute: 0
+  });
+
+</script>

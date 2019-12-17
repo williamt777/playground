@@ -64,6 +64,7 @@ end
 gem 'bootstrap', '~> 4.3'
 gem 'jquery-rails'
 gem 'pg', '~> 1.1'
+gem 'flatpickr'
 #group :production do
 #  gem 'pg', '~> 1.1'
 #end

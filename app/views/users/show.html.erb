@@ -4,6 +4,8 @@
 
 <p id="notice"><%= notice %></p>
 
+<h2 class="mb-3">Show User</h2>
+
 <p>
   <strong>Name:</strong>
   <%= @user.name %>
@@ -20,8 +22,13 @@
 </p>
 
 <p>
-  <strong>Party time:</strong>
-  <%= @user.party_time %>
+  <strong>Party started_at:</strong>
+  <%= @user.party_started_at %>
+</p>
+
+<p>
+  <strong>Party ended_at:</strong>
+  <%= @user.party_ended_at %>
 </p>
 
 <p>
@@ -32,7 +39,7 @@
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Index', users_path %>
 
     </div>
   </div>
