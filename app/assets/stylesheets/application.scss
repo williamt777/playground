@@ -12,10 +12,14 @@
  *
  */
 
-// Custom bootstrap variables must be set or imported *before* bootstrap.
-@import "bootstrap";
+@import "bootstrap/dist/css/bootstrap";
 
-@import "flatpickr";
+@import "flatpickr/dist/flatpickr";
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
 
 // local files
-@import "playground";
+@import "./*";

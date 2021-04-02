@@ -42,7 +42,7 @@
     <div class="col-md-4">
       <%= form.label "Party date" %>
       <div class="input-group mb-3">
-        <%= form.text_field :party_started_at, id: 'party-date', 
+        <%= form.text_field :party_started_at, id: 'party-date',
                             class: 'form-control bg-white-flatpickr' %>
         <div class="input-group-append">
           <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
@@ -63,8 +63,8 @@
 
     <div class="col-md-4">
       <%= form.label "Duration" %>
-      <%= form.select :party_duration, 
-                      options_for_select(ux_party_duration_choices(), '30 minutes'), 
+      <%= form.select :party_duration,
+                      options_for_select(ux_party_duration_choices(), '30 minutes'),
                       {}, class: "form-control" %>
     </div>
   </div>
@@ -86,26 +86,3 @@
     <%= form.submit "Update user", class: "btn btn-outline-secondary" %>
   </div>
 <% end %>
-
-
-
-<script type="text/javascript">
-
-  flatpickr("#party-date", {
-    altInput: true,
-    altFormat: "D M j, Y",
-    dateFormat: "Y-m-d",
-  });
-
-
-  flatpickr("#party-time", {
-    altInput: true,
-    altFormat: "h:i K",
-    dateFormat: "H:i",
-    enableTime: true,
-    noCalendar: true,
-    defaultHour: 9,
-    defaultMinute: 0
-  });
-
-</script>
