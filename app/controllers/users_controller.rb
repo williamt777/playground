@@ -77,8 +77,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     # update party start and end times
-    dt_hash = ux_calc_party_times(params[:user][:party_started_at], 
-                                  params[:user][:party_start_time], 
+    dt_hash = ux_calc_party_times(params[:user][:party_started_at],
+                                  params[:user][:party_start_time],
                                   params[:user][:party_duration])
     @user.party_started_at = dt_hash[:start]
     @user.party_ended_at = dt_hash[:end]
@@ -144,6 +144,9 @@ class UsersController < ApplicationController
     @user_csv_guy.accept_rows
 
     redirect_to import_csv_path, notice: 'CSV data accepted'
+  end
+
+  def chart_fun
   end
 
   private

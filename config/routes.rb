@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get 'import_csv2', to: 'users#import_csv2'
   patch 'import_csv2', to: 'users#update_csv2'
 
+  get 'chart_fun', to: 'users#chart_fun'
+
   root 'users#index'
 end
