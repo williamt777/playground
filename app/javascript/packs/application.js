@@ -17,16 +17,7 @@ document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="popover"]').popover()
 })
 
-// Bootstrap CSS is in app/assets/stylesheets/application.css
-//require("bootstrap/dist/css/bootstrap.css")
-//import "../stylesheets/application"
-
-//require("bootstrap/dist/css/bootstrap.css")
-//import "~bootstrap/scss/bootstrap";
-//import "~bootstrap/scss/bootstrap"
-//import "../stylesheets/application"
-
-// FLATPICKR
+// FLATPICKR - js is here; CSS is in the layouts/application file
 import flatpickr from "flatpickr"
 
 // Each flatpickr usage is customized using a CSS ID linked to this js
@@ -51,8 +42,25 @@ document.addEventListener("turbolinks:load", () => {
 
 })
 
+// TESTING!
+import { hello } from './hello';
+
+document.addEventListener("turbolinks:load", () => {
+  var button1 = document.getElementById("webpack-test");
+  if(button1 != null) {
+    button1.addEventListener("click", () => hello("Baby Mira!"));
+  }
+});
+
 // Flatpickr CSS is in app/assets/stylesheets/application.css
 //require("flatpickr/dist/flatpickr.css")
+
+// CHART.JS
+//require("chart.js")
+
+//import Chart from "chart.js";
+//import Chart from "chart.js"
+
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

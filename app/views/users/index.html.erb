@@ -40,11 +40,12 @@
         <%= link_to 'Name', users_path(sort_by: "nD"), remote: true,
                             id: "name-link", class: "border-sorted" %>
       </th>
-      <th><%= link_to 'Email', users_path(sort_by: "eA"), remote: true,
-                               id: "email-link", class: "border-not-sorted" %></th>
+      <th class="d-none d-lg-table-cell"><%= link_to 'Email', users_path(sort_by: "eA"), remote: true,
+                               id: "email-link",
+                               class: "border-not-sorted" %></th>
       <th><%= link_to 'Stars', users_path(sort_by: "sA"), remote: true,
                                id: "stars-link", class: "border-not-sorted" %></th>
-      <th>Party time</th>
+      <th class="d-none d-lg-table-cell">Party time</th>
       <th>+/-</th>
       <th class="text-center">Actions</th>
     </tr>
@@ -56,6 +57,9 @@
   </tbody>
 </table>
 
+<!-- get the js to support this button -->
+
+
 <br>
 <div class="mt-4">
   <%= link_to 'New User', new_user_path, class: "btn btn-outline-success" %>
@@ -63,6 +67,8 @@
   <%= link_to 'Import CSV', import_csv_path, class: "btn btn-outline-secondary" %>
   &nbsp; &nbsp;
   <%= link_to 'Chart fun', chart_fun_path, class: "btn btn-outline-info" %>
+  &nbsp; &nbsp;
+  <%= link_to 'Webpack test', "#", id: "webpack-test", class: "btn btn-outline-danger" %>
 </div>
 <br>
 <hr>
