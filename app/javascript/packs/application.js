@@ -42,15 +42,9 @@ document.addEventListener("turbolinks:load", () => {
 
 })
 
-// TESTING!
-import { hello } from './hello';
+require("custom/hello2")
 
-document.addEventListener("turbolinks:load", () => {
-  var button1 = document.getElementById("webpack-test");
-  if(button1 != null) {
-    button1.addEventListener("click", () => hello("Baby Mira!"));
-  }
-});
+// TESTING!
 
 // Flatpickr CSS is in app/assets/stylesheets/application.css
 //require("flatpickr/dist/flatpickr.css")

@@ -69,6 +69,8 @@
   <%= link_to 'Chart fun', chart_fun_path, class: "btn btn-outline-info" %>
   &nbsp; &nbsp;
   <%= link_to 'Webpack test', "#", id: "webpack-test", class: "btn btn-outline-danger" %>
+  &nbsp; &nbsp;
+  <%= link_to 'Webpack test #2', "#", id: "webpack-test2", class: "btn btn-outline-danger" %>
 </div>
 <br>
 <hr>
@@ -85,3 +87,6 @@
     </div>
   </div>
 </div>
+
+<%= javascript_pack_tag 'hello', 'data-turbolinks-track': 'reload' %>
+
