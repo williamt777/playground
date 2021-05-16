@@ -12,5 +12,5 @@ else {
 
 // say hello to someone
 export function hello2(name) {
-  alert("Hello2 " + name + "!");
+  alert("ZZZ - Hello2 " + name + "!");
 }
