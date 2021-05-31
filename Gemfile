@@ -46,15 +46,15 @@ group :test do
   gem 'webdrivers'
 end
 
+# Use Postgres for dev and production
+gem 'pg', '~> 1.2', '>= 1.2.3'
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # BILL: added these
 # gem 'bootstrap', '~> 4.3'
 # gem 'jquery-rails'
-
-# Use Postgres for dev and production
-gem 'pg', '~> 1.1'
 # Use flatpickr to select dates in UX
 # gem 'flatpickr'
 #
