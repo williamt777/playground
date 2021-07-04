@@ -149,6 +149,9 @@ class UsersController < ApplicationController
   def chart_fun
   end
 
+  def calendar_test
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

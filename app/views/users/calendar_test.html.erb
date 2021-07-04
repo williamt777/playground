@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<h2 class="mb-3">Calendar test</h2>
+
+<p>
+  Hi Bill. Simple calendar me.
+</p>
+
+<%= month_calendar do |date| %>
+  <div>
+    <%= date.day %>
+  </div>
+<% end %>
+
+<br>
+<%= link_to '< Index', users_path %>
+
+    </div>
+  </div>
+</div>

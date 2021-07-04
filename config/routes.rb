@@ -14,5 +14,7 @@ Rails.application.routes.draw do
 
   get 'chart_fun', to: 'users#chart_fun'
 
+  get 'calendar_test', to: 'users#calendar_test'
+
   root 'users#index'
 end
