@@ -1,0 +1,40 @@
+<!--
+  Parital: calendar_items
+  Display calendar items on the selected date
+-->
+<% today = Date.current %>
+<% birthday = Date.new(today.year, 2, 27) %>
+
+<% if @my_calendar.selected_date %>
+
+  <h5>
+    <% nice_date = @my_calendar.selected_date.strftime("%a %b %-d") %>
+    Activity on <%= nice_date %>
+  </h5>
+
+  <ul class="text-hb-md ul-spacer" style="list-style-type:circle">
+    <li>
+      Checkpoint - meet with parents, <%= link_to 'view', users_url %>
+    </li>
+    <li>
+      Life event - change in medications, <%= link_to 'view', users_url %>
+    </li>
+    <li>
+      Session with WilliamT @ 10:15 am - Goal3/Obj1 Improve flash cards and other...,
+      <%= link_to 'view', users_url %>
+    </li>
+    <li>
+      Session with Amy P @ 11:20 am - Goal2/Ben2 50% fluency in Spanish quizzes,
+      <%= link_to 'view', users_url %>
+    </li>
+  </ul>
+  <p class="text-hb-md">
+    Actions: &nbsp;
+    <%= link_to '+ New life event', users_url, class: "btn btn-sm btn-outline-success" %>
+  </p>
+<% else %>
+  <p class="text-hb-lg">
+    <i class="fa fa-info-circle text-primary pr-2"></i>
+    Select calendar to see student activity on that date.
+  </p>
+<% end %>

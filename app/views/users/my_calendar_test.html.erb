@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<h3 class="mb-3">My Calendar test</h2>
+
+<div class="row mt-4">
+
+  <!-- col: the calendar table goes in the top/left -->
+  <div class="col-12 col-lg-6">
+    <%= render "calendar_body" %>
+  </div>
+
+  <!-- col: calendar items on the selected date...and more! -->
+  <div class="col-12 col-lg-6 pt-4 pl-4">
+    <%= render "calendar_items" %>
+  </div>
+</div>
+
+<br>
+<%= link_to '< Index', users_path %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+
+.simple-calendar {
+  table {
+    /* box-sizing: border-box; */
+    max-width: 100%;
+    width: 100%;
+    border: 0px;
+  }
+
+  tr {
+    border-collapse: collapse;
+  }
+
+  th {
+    padding: 8px 8px 0px 8px;
+    border: 0px;
+    color:  gray; font-size: 0.9rem; font-weight: normal; text-align: center;
+  }
+
+  td {
+    padding: 8px;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    width: 14%;
+  }
+  td a {
+    text-decoration: none;
+    color: black;
+  }
+  td .today {
+    text-decoration: none;
+    color: red !important;
+  }
+
+  .day {
+    height: 48px;
+  }
+
+  .wday-0 { color: gray; }
+  .wday-1 { color: black; }
+  .wday-2 { color: black; }
+  .wday-3 { color: black; }
+  .wday-4 { color: black; }
+  .wday-5 { color: black; }
+  .wday-6 { color: gray; }
+
+  .today {
+    color: red !important;
+  }
+
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {
+    background: #F8F8FF;
+  }
+  .next-month {
+    background: #F8F8FF;
+  }
+  .current-month {}
+
+  .has-events { border-color: blue !important; text-decoration: underline !important; }
+}

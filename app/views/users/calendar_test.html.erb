@@ -4,15 +4,28 @@
 
 <h2 class="mb-3">Calendar test</h2>
 
+<style>
+  .test1 { background-color: transparent; border-radius: 8px;
+           display: inline-block; width: 48px; }
+  .test1:hover { background-color: yellow; }
+</style>
+
 <p>
   Hi Bill. Simple calendar me.
 </p>
 
-<%= month_calendar do |date| %>
-  <div>
-    <%= date.day %>
+<div class="row">
+  <div class="col-12 col-lg-6 col-xl-4">
+    <%= month_calendar(events: @events) do |date, events| %>
+      <% today_flag = (date.iso8601 == Date.today.iso8601) %>
+      <% bonus = "today" if today_flag %>
+      <span class="test1 <%= bonus %>"><%= date.day %></span>
+    <% end %>
   </div>
-<% end %>
+  <div class="col-12 col-lg-6 col-xl-8">
+    <%= @blather %>
+  </div>
+</div>
 
 <br>
 <%= link_to '< Index', users_path %>

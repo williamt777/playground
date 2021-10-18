@@ -1,0 +1,74 @@
+<!--
+  Partial: calendar_boy
+  Guts of the MyCalendar body
+-->
+<div class="msc-calendar">
+  <div class="calendar-heading text-center">
+    <%= link_to '< Prev', url_for(@my_calendar.params_for_prev), class: "float-left" %>
+
+    <span class="title"><%= t(@my_calendar.title) %></span>
+
+    <%= link_to 'Next >', url_for(@my_calendar.params_for_next), class: "float-right" %>
+  </div>
+
+  <table class="table border-1">
+
+    <!-- table header: show days-of-the-week names: Sun, Mon, ...Sat -->
+    <thead>
+      <tr>
+        <% @my_calendar.day_names.each do |each_name| %>
+          <th><%= each_name %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <!-- table body: show the days in 7 day (one week) slices -->
+    <tbody>
+      <% @my_calendar.date_range.each_slice(7) do |each_week| %>
+        <tr>
+          <% each_week.each do |each_day| %>
+            <% if @my_calendar.is_cur_month(each_day) %>
+            <% css1 = "weekend" if @my_calendar.is_weekend(each_day) %>
+              <td class="<%= css1 %>">
+                <%= link_to url_for(@my_calendar.params_for_selected_date(each_day)) do %>
+                  <% css2 = @my_calendar.css_classes(each_day) %>
+                  <span class="<%= css2 %>"><%= each_day.day %></span>
+                <% end %>
+              </td>
+            <% else %>
+              <td>
+                <!-- empty if day is not during this month -->
+              </td>
+            <% end %> <!-- if day is in this month-->
+          <% end %> <!-- for each day -->
+        </tr>
+      <% end %>
+
+      <% if @my_calendar.num_weeks < 6 %>
+        <tr>
+          <% for j in 1..7 do %>
+            <td> &nbsp; </td>
+          <% end %>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+
+  <!-- text: formatting key-->
+  <p class="text-hb-md">
+    Calendar:
+    &nbsp;
+    <%= link_to 'Today', url_for(@my_calendar.params_for_jump(Date.current)),
+                                   class: "btn btn-sm btn-outline-secondary" %>
+    <% if @my_calendar.selected_date %>
+      &nbsp;
+      <%= link_to 'Clear selection', url_for(@my_calendar.params_for_clear_selected_date()),
+                                     class: "btn btn-sm btn-outline-secondary" %>
+    <% end %>
+  </p>
+  <p class="text-hb-md">
+    Key to days formatting: <span style="color: red">today</span>,
+    <span style="background-color: lightgray; padding: 2px;">selected</span>, <u>activity</u>
+  </p>
+</div>

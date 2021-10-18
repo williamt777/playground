@@ -1,0 +1,58 @@
+
+.msc-calendar {
+  table {
+    max-width: 100%;
+    width: 100%;
+    border: 0px;
+  }
+
+  th {
+    padding: 8px 8px 0px 8px;
+    border: 0px;
+    color:  gray; font-size: 0.9rem; font-weight: normal; text-align: center;
+  }
+
+  td {
+    padding: 8px;
+    vertical-align: top;
+    text-align: center;
+    text-decoration: none;
+    width: 14%;
+  }
+  td a {
+    text-decoration: none;
+    color: black;
+  }
+  td a :not(.selected-date):hover {
+    background-color: lightgray; /* ferrari red = #ff2800 */
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  .title { font-size: 1.2em; color: dimgray; font-weight: bold; }
+
+  .day0 { color: gray; }
+  .day1 { color: black; }
+  .day2 { color: black; }
+  .day3 { color: black; }
+  .day4 { color: black; }
+  .day5 { color: black; }
+  .day6 { color: gray; }
+
+  .today { color: red !important; }
+  .past {}
+  .future {}
+
+  .selected-date {
+    background-color: lightgray;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+
+  .prev-month { color: lightgray; }
+  .next-month { color: lightgray; }
+  .cur-month {}
+  .weekend { background-color: AliceBlue; }
+
+  .has-items { text-decoration: underline; }
+}

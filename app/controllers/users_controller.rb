@@ -149,7 +149,30 @@ class UsersController < ApplicationController
   def chart_fun
   end
 
+  def my_calendar_test
+    @my_calendar = MySimpleCalendar.new(params)
+    d1 = Date.current - 1.day
+    d2 = Date.current - 1.week
+    d3 = Date.current + 1.month
+    list1 = [d1, d2, d3]
+    @my_calendar.add_item_dates(list1)
+    update_blather(@my_calendar.selected_date)
+  end
+
   def calendar_test
+    @blather = if params["the_date"]
+                 "Date selected is " + params["the_date"]
+               else
+                 "Nothing to say, Bill"
+               end
+
+    item1 = CalendarItem.new( Date.new(2021, 10, 15).to_datetime, "TY due!")
+    item2 = CalendarItem.new( Date.new(2021, 10, 22), "Trip to Portland, ME")
+    @events = []
+    @events << item1 << item2
+    d1 = params["start_date"].to_date if params["start_date"]
+    d1 ||= Date.today
+    test = Util.month_name(d1)
   end
 
   private
@@ -162,6 +185,14 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :email, :stars, :comment)
 #                     :party_started_at, :party_start_time, :party_duration)
+    end
+
+    def update_blather(the_date)
+      if the_date
+        @blather = "Selected date is " + the_date.strftime("%b %-d, %Y")
+      else
+        @blather = "No date selected yet"
+      end
     end
 
 end
