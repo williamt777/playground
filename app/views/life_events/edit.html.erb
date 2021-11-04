@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<h2 class="mb-3">Edit Life event</h2>
+
+<%= render 'form', life_event: @life_event %>
+
+<%= link_to '- Destroy', @life_event, method: :delete,
+            class: "my-4 btn btn-outline-danger",
+            data: { confirm: 'Are you sure?' } %>
+
+<br>
+<%= link_to '< Index', life_events_path %>
+
+    </div>
+  </div>
+</div>

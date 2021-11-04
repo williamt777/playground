@@ -1,0 +1,12 @@
+
+<li class="pb-3">
+  Id=<%= life_event.id %>,
+  User=<%= life_event.user.name %>,
+  Date=<%= ux_happened_at_date(life_event) %>,
+  Description=<span class="text-muted">"<%= life_event.description %>"</span>,
+  &nbsp;
+  [ <%= link_to 'Show', life_event %>
+  &nbsp; | &nbsp;
+  <%= link_to 'Edit', edit_life_event_path(life_event) %> ]
+
+</li>

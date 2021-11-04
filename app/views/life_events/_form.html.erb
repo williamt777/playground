@@ -1,0 +1,60 @@
+<!--
+  Partial: Life events form
+  Params: @user, the focus user
+-->
+<%= form_with(model: life_event, local: true) do |form| %>
+
+  <% if life_event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(life_event.errors.count, "error") %> prohibited this Life event from being saved:</h2>
+
+      <ul>
+      <% life_event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<style>
+  .bg-white-flatpickr { background-color: white !important; }
+</style>
+
+  <table class="table table-sm table-borderless">
+    <tbody>
+      <tr>
+          <td width="20%">
+            <%= form.label "Life event date: ", class: "mr-3" %>
+          </td>
+          <td>
+            <div class="form-group form-inline">
+              <%= form.text_field :happened_at, id: 'party-date',
+                                              class: 'w-75 bg-white-flatpickr' %>
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2"><i class="far  fa-calendar-alt py-1"></i></span>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+      <tr>
+        <td>
+          <%= form.label "Description: ", class: "mr-3" %>
+        </td>
+        <td>
+          <%= form.text_area :description, class: "w-75 w-lg-50" %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <% if @user.present? %>
+            <%= hidden_field_tag 'user_id', @user.id %>
+          <% end %>
+          <%= form.submit "Update life event", class: "btn btn-outline-secondary" %>
+        </td>
+        <td> &nbsp; </td>
+      </tr>
+    </tbody>
+  </table>
+
+<% end %>

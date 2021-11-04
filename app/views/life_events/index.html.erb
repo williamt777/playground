@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+      <span id="notice" class="float-right"><%= notice %></span>
+
+      <h1>Life events</h1>
+
+      <p>
+        Num life events=<%= @life_events.count %>
+      </p>
+
+      <ul>
+        <!-- Rails magic renders user partial foreach user in the collection -->
+        <%= render @life_events %>
+      </ul>
+
+      <p>
+        <%= link_to '< Home', root_path %>
+      </p>
+
+    </div>
+  </div>
+</div>

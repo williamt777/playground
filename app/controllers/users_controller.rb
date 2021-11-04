@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   require "csv"
   include UsersHelper
 
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :increment, :clear]
+  before_action :set_user, only: [:show, :edit, :update, :destroy,
+                                  :increment, :clear, :new_life_event]
 
   # GET /users
-  # GET /users.json
   def index
     # default is sort by name, ascending
     @sort_by = "nA"
@@ -43,7 +43,6 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1
-  # GET /users/1.json
   def show
   end
 
@@ -58,7 +57,6 @@ class UsersController < ApplicationController
   end
 
   # POST /users
-  # POST /users.json
   def create
     @user = User.new(user_params)
 
@@ -74,7 +72,6 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
   def update
     # update party start and end times
     dt_hash = ux_calc_party_times(params[:user][:party_started_at],
@@ -96,7 +93,6 @@ class UsersController < ApplicationController
   end
 
   # DELETE /users/1
-  # DELETE /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
@@ -124,20 +120,23 @@ class UsersController < ApplicationController
     end
   end
 
+  # GET /users/1/import_csv
   def import_csv
   end
 
+  # GET /users/1/import_csv
   def update_csv
     @user_csv_guy = UserCsvGuy.new(params[:csv_data])
     respond_to do |format|
       format.js
     end
-#    render "import_csv2"
   end
 
+  # GET /users/1/import_csv2
   def import_csv2
   end
 
+  # GET /users/1/update_csv2
   def update_csv2
     # really add the CSV data to the session here
     @user_csv_guy = UserCsvGuy.new(params[:import_str])
@@ -146,9 +145,11 @@ class UsersController < ApplicationController
     redirect_to import_csv_path, notice: 'CSV data accepted'
   end
 
+  # GET /users/1/chart_fun
   def chart_fun
   end
 
+  # GET /users/1/my_calendar_test
   def my_calendar_test
     @my_calendar = MySimpleCalendar.new(params)
     d1 = Date.current - 1.day
@@ -159,6 +160,7 @@ class UsersController < ApplicationController
     update_blather(@my_calendar.selected_date)
   end
 
+  # GET /users/1/calendar_test
   def calendar_test
     @blather = if params["the_date"]
                  "Date selected is " + params["the_date"]
@@ -184,7 +186,6 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :email, :stars, :comment)
-#                     :party_started_at, :party_start_time, :party_duration)
     end
 
     def update_blather(the_date)
@@ -194,5 +195,4 @@ class UsersController < ApplicationController
         @blather = "No date selected yet"
       end
     end
-
 end

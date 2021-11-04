@@ -2,7 +2,16 @@
   <div class="row mt-5">
     <div class="col">
 
-<h2 class="mb-3">Edit User</h2>
+<div class="row mb-2">
+  <div class="col-6">
+    <h2 class="mb-3">Edit User</h2>
+  </div>
+  <div class="col-6">
+    <!-- Edit User is where life events can be added to an existing user -->
+    <%= link_to '+ New life event', new_life_event_path(user: @user),
+                class: "btn btn-outline-success float-right mt-2 mr-2" %>
+  </div>
+</div>
 
 <%= render 'form', user: @user %>
 

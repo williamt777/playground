@@ -38,6 +38,13 @@
   </div>
 </p>
 
+<p>
+  <strong>Life events (<%= @user.life_events.count %>):</strong>
+</p>
+<ul>
+  <%= render @user.life_events %>
+</ul>
+
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Index', users_path %>
 
