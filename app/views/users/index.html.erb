@@ -2,20 +2,20 @@
   <div class="row mt-5">
     <div class="col">
 
-<div class="col-12">
+
   <span id="notice" class="float-right"><%= notice %></span>
 
-  <h1>
-    <i class="far fa-smile mr-2 text-success"></i>
-    Users
+  <!-- header: home page title -->
+  <h3>
+    <small><i class="far fa-smile mr-2 text-success"></i></small>
+    Home &mdash; All users
     <small class="text-secondary">
       <i class="fas fa-question-circle ml-3"
          data-toggle="tooltip"
          data-placement="bottom"
          title="Tooltip text for users index. Huzzah!"></i>
      </small>
-  </h1>
-</div>
+  </h3>
 
 <style>
   .border-sorted {
@@ -57,12 +57,23 @@
   </tbody>
 </table>
 
+<p class="mt-3 mr-3 text-right">
+  <%= link_to '+ New User', new_user_path, class: "btn btn-outline-success" %>
+</p>
+
+
 <!-- get the js to support this button -->
 
+<p class="mt-3">
+  All index pages:
+  &nbsp; &nbsp;
+  <%= link_to 'All Students', students_path %>
+  &nbsp; | &nbsp;
+  <%= link_to 'All Journals', journals_path %>
+</p>
 
-<br>
-<div class="mt-4">
-  <%= link_to 'New User', new_user_path, class: "btn btn-outline-success" %>
+<p>
+  Testing:
   &nbsp; &nbsp;
   <%= link_to 'Import CSV', import_csv_path, class: "btn btn-outline-secondary" %>
   &nbsp; &nbsp;
@@ -75,21 +86,18 @@
   <%= link_to 'Webpack test', "#", id: "webpack-test", class: "btn btn-outline-danger" %>
   &nbsp; &nbsp;
   <%= link_to 'Webpack test #2', "#", id: "webpack-test2", class: "btn btn-outline-danger" %>
-</div>
-<br>
+</p>
+
 <hr>
-
-<p class="mt-4 text-pink-fun">
-  This is fun (hot pink) text. yow, bill
-</p>
-
-<p class="mt-4">
-  This is an image in the asset pipeline.
-  <%= image_tag "crayons2.jpg", style: 'height:128px;'%>
-</p>
 <p>
   Bill - your laptop says hello. &nbsp; <i class="fas fa-laptop"></i>
 </p>
+<p>
+  This is an image in the asset pipeline.
+  <%= image_tag "crayons2.jpg", style: 'height:128px;'%>
+</p>
+
+
     </div>
   </div>
 </div>

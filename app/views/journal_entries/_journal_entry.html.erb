@@ -1,0 +1,15 @@
+
+<li class="pb-3">
+  Id=<%= journal_entry.id %>,
+  by User=<%= journal_entry.user.name %>,
+  on Date=<%= ux_journal_entry_entered_at_date(journal_entry) %>,
+  &nbsp;
+  [ <%= link_to 'Show', journal_entry %>
+  &nbsp; | &nbsp;
+  <%= link_to 'Edit', edit_journal_entry_path(journal_entry) %>
+  &nbsp; | &nbsp;
+  <%= link_to 'Destroy', journal_entry,
+              method: :delete, data: { confirm: 'Are you sure?' } %> ]
+  <br>
+  Content=<span class="text-muted"><%= journal_entry.content %></span>
+</li>

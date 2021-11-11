@@ -23,34 +23,39 @@
   <table class="table table-sm table-borderless">
     <tbody>
       <tr>
-          <td width="20%">
-            <%= form.label "Life event date: ", class: "mr-3" %>
-          </td>
-          <td>
-            <div class="form-group form-inline">
-              <%= form.text_field :happened_at, id: 'party-date',
-                                              class: 'w-75 bg-white-flatpickr' %>
-              <div class="input-group-append">
-                <span class="input-group-text" id="basic-addon2"><i class="far  fa-calendar-alt py-1"></i></span>
-              </div>
+        <td width="20%">
+          <%= form.label "Life event date: ", class: "mr-3" %>
+        </td>
+        <td>
+          <div class="form-group form-inline">
+            <%= form.text_field :happened_at, id: 'party-date',
+                                            class: 'w-75 bg-white-flatpickr' %>
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2"><i class="far  fa-calendar-alt py-1"></i></span>
             </div>
-          </td>
-        </div>
+          </div>
+        </td>
       </tr>
+
       <tr>
         <td>
           <%= form.label "Description: ", class: "mr-3" %>
         </td>
         <td>
-          <%= form.text_area :description, class: "w-75 w-lg-50" %>
+          <%= form.text_area :description, :rows => 7, class: "form-control w-75 w-lg-50" %>
         </td>
       </tr>
+
       <tr>
         <td>
           <% if @user.present? %>
+            <!-- no user means just edit existing life event -->
             <%= hidden_field_tag 'user_id', @user.id %>
+            <%= form.submit "Create", class: "mt-3 btn btn-outline-secondary" %>
+          <% else %>
+            <!-- if user present, then we are creating a new life event -->
+            <%= form.submit "Update life event", class: "mt-3 btn btn-outline-success" %>
           <% end %>
-          <%= form.submit "Update life event", class: "btn btn-outline-secondary" %>
         </td>
         <td> &nbsp; </td>
       </tr>

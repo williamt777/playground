@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="mb-3">Journals</h1>
+
+<p class="text-muted">
+  There
+  <%= @journals.count != 1 ? "are" : "is" %>
+  <%= pluralize( @journals.count, "journal") %>.
+</p>
+
+<% if @journals.present? %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Student</th>
+      <th>Comment</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @journals.each do |each_journal| %>
+      <tr>
+        <td><%= each_journal.id %></td>
+        <td><%= each_journal.student.name %></td>
+        <td><%= each_journal.comment %></td>
+        <td>
+          <%= link_to 'Show', each_journal %> &nbsp; | &nbsp;
+          <span class="text-muted">Edit</span> &nbsp; | &nbsp;
+          <span class="text-muted">Destroy</span>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
+
+<br>
+<%= link_to '< Home', root_path %>
+
+    </div>
+  </div>
+</div>

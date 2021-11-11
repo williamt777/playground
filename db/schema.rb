@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_03_214255) do
+ActiveRecord::Schema.define(version: 2021_11_09_140818) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "journal_entries", force: :cascade do |t|
+    t.text "content"
+    t.datetime "entered_at"
+    t.string "entry_type"
+    t.text "activity_log"
+    t.bigint "journal_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["journal_id"], name: "index_journal_entries_on_journal_id"
+    t.index ["user_id"], name: "index_journal_entries_on_user_id"
+  end
+
+  create_table "journals", force: :cascade do |t|
+    t.text "comment"
+    t.bigint "student_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_journals_on_student_id"
+  end
 
   create_table "life_events", force: :cascade do |t|
     t.text "description"
@@ -23,6 +44,14 @@ ActiveRecord::Schema.define(version: 2021_11_03_214255) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_life_events_on_user_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "grade_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,5 +65,8 @@ ActiveRecord::Schema.define(version: 2021_11_03_214255) do
     t.datetime "party_ended_at"
   end
 
+  add_foreign_key "journal_entries", "journals"
+  add_foreign_key "journal_entries", "users"
+  add_foreign_key "journals", "students"
   add_foreign_key "life_events", "users"
 end

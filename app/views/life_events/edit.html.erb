@@ -6,12 +6,14 @@
 
 <%= render 'form', life_event: @life_event %>
 
-<%= link_to '- Destroy', @life_event, method: :delete,
-            class: "my-4 btn btn-outline-danger",
-            data: { confirm: 'Are you sure?' } %>
+<div class="text-right">
+  <%= link_to '- Destroy', @life_event, method: :delete,
+              class: "mr-3 btn btn-outline-danger",
+              data: { confirm: 'Are you sure?' } %>
+</div>
 
 <br>
-<%= link_to '< Index', life_events_path %>
+<%= link_to '< All life events', life_events_path %>
 
     </div>
   </div>

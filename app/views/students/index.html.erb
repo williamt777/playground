@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="mb-3">Students</h1>
+
+<p class="text-muted">
+  There
+  <%= pluralize_is_are(@students.count) %>
+  <%= pluralize( @students.count, "student") %>.
+</p>
+
+<% if @students.present? %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Grade level</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+        <td><%= student.email %></td>
+        <td><%= student.grade_level %></td>
+        <td>
+          <%= link_to 'Show', student %> &nbsp; | &nbsp;
+          <%= link_to 'Edit', edit_student_path(student) %> &nbsp; | &nbsp;
+          <%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
+
+<br>
+<%= link_to '+ New student', new_student_path, class: "btn btn-outline-success" %>
+<br><br>
+<%= link_to '< Home', root_path %>
+
+    </div>
+  </div>
+</div>

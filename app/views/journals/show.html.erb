@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show Journal</h3>
+
+<p>
+  <strong>ID:</strong>
+  <%= @journal.id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @journal.student&.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <div class="ml-5 p-3 border rounded">
+    <%= simple_format @journal.comment %>
+  </div>
+</p>
+
+<p>
+  <strong>Journal entrires (<%= @journal.journal_entries.count %>):</strong>
+</p>
+<ul>
+  <%= render @journal.journal_entries %>
+</ul>
+
+<br>
+Jump to: &nbsp;
+<%= link_to 'Home', root_path %>
+&nbsp; <i class="fa fa-angle-double-right text-muted"></i> &nbsp;
+<%= link_to 'All journals', journals_path %>
+
+    </div>
+  </div>
+</div>

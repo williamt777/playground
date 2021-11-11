@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  entered_at: 2021-11-09 09:08:18
+  entry_type: MyString
+  activity_log: MyText
+  journal: one
+  user: one
+
+two:
+  content: MyText
+  entered_at: 2021-11-09 09:08:18
+  entry_type: MyString
+  activity_log: MyText
+  journal: two
+  user: two

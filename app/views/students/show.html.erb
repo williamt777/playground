@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show Student</h3>
+
+<p>
+  <strong>Name:</strong>
+  <%= @student.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Grade level:</strong>
+  <%= @student.grade_level %>
+</p>
+
+<p>
+  <strong>Journal entries (<%= @student.journal.journal_entries.count %>):</strong>
+</p>
+<ul>
+  <%= render @student.journal.journal_entries %>
+</ul>
+
+
+<%= link_to 'Edit', edit_student_path(@student) %>
+&nbsp; | &nbsp;
+<%= link_to 'All students', students_path %>
+
+    </div>
+  </div>
+</div>
