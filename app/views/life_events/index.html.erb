@@ -2,22 +2,22 @@
   <div class="row mt-5">
     <div class="col">
 
-      <span id="notice" class="float-right"><%= notice %></span>
+<span id="notice"><%= notice %></span>
 
-      <h1>Life events</h1>
+<h3>
+  Life events <small>for</small> <%= @user.name %>
+</h3>
 
-      <p>
-        Num life events=<%= @life_events.count %>
-      </p>
+<p class="text-muted">
+  Num life events: <%= @life_events.count %>
+</p>
 
-      <ul>
-        <!-- Rails magic renders user partial foreach user in the collection -->
-        <%= render @life_events %>
-      </ul>
+<ul>
+  <!-- Rails magic renders user partial foreach user in the collection -->
+  <%= render @life_events %>
+</ul>
 
-      <p>
-        <%= link_to '< Home', root_path %>
-      </p>
+<%= link_to '< Home', root_path %>
 
     </div>
   </div>

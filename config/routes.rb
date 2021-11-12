@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
 
+  root 'users#root'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
     member do
       patch :increment
       patch :clear
     end
+    resources :life_events, only: [:index, :new, :create]
   end
+
+  resources :life_events, only: [:show, :edit, :update, :destroy]
 
   resources :students
   resources :journals, only: [:index, :show]
   resources :journal_entries
-
-  resources :life_events
 
   get 'import_csv', to: 'users#import_csv'
   patch 'import_csv', to: 'users#update_csv'
@@ -24,5 +27,4 @@ Rails.application.routes.draw do
   get 'calendar_test', to: 'users#calendar_test'
   get 'my_calendar_test', to: 'users#my_calendar_test'
 
-  root 'users#index'
 end

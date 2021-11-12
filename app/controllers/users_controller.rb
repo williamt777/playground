@@ -5,6 +5,10 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy,
                                   :increment, :clear, :new_life_event]
 
+  # GET /
+  def root
+  end
+
   # GET /users
   def index
     # default is sort by name, ascending

@@ -2,7 +2,7 @@
   Partial: Life events form
   Params: @user, the focus user
 -->
-<%= form_with(model: life_event, local: true) do |form| %>
+<%= form_for [@user, @life_event], local:true do |form| %>
 
   <% if life_event.errors.any? %>
     <div id="error_explanation">
@@ -22,6 +22,15 @@
 
   <table class="table table-sm table-borderless">
     <tbody>
+      <tr>
+        <td width="20%">
+          <%= form.label "User: ", class: "mr-3" %>
+        </td>
+        <td>
+          <%= form.text_field :user, value: life_event.user.name,
+                              class: "form-control w-75 w-lg-50", readonly: true %>
+        </td>
+      </tr>
       <tr>
         <td width="20%">
           <%= form.label "Life event date: ", class: "mr-3" %>

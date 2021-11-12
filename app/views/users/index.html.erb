@@ -2,20 +2,12 @@
   <div class="row mt-5">
     <div class="col">
 
+<span id="notice"><%= notice %></span>
 
-  <span id="notice" class="float-right"><%= notice %></span>
-
-  <!-- header: home page title -->
-  <h3>
-    <small><i class="far fa-smile mr-2 text-success"></i></small>
-    Home &mdash; All users
-    <small class="text-secondary">
-      <i class="fas fa-question-circle ml-3"
-         data-toggle="tooltip"
-         data-placement="bottom"
-         title="Tooltip text for users index. Huzzah!"></i>
-     </small>
-  </h3>
+<h3>All users</h3>
+<p class="text-muted my-3">
+  Click on the column heading to sort
+</p>
 
 <style>
   .border-sorted {
@@ -61,46 +53,14 @@
   <%= link_to '+ New User', new_user_path, class: "btn btn-outline-success" %>
 </p>
 
-
 <!-- get the js to support this button -->
 
 <p class="mt-3">
-  All index pages:
-  &nbsp; &nbsp;
-  <%= link_to 'All Students', students_path %>
-  &nbsp; | &nbsp;
-  <%= link_to 'All Journals', journals_path %>
+  <%= link_to '< Home', root_path %>
 </p>
-
-<p>
-  Testing:
-  &nbsp; &nbsp;
-  <%= link_to 'Import CSV', import_csv_path, class: "btn btn-outline-secondary" %>
-  &nbsp; &nbsp;
-  <%= link_to 'Chart fun', chart_fun_path, class: "btn btn-outline-info" %>
-  &nbsp; &nbsp;
-  <%= link_to 'My Calendar', my_calendar_test_path, class: "btn btn-outline-warning" %>
-  &nbsp; &nbsp;
-  <%= link_to 'Calendar', calendar_test_path, class: "btn btn-outline-primary" %>
-  &nbsp; &nbsp;
-  <%= link_to 'Webpack test', "#", id: "webpack-test", class: "btn btn-outline-danger" %>
-  &nbsp; &nbsp;
-  <%= link_to 'Webpack test #2', "#", id: "webpack-test2", class: "btn btn-outline-danger" %>
-</p>
-
-<hr>
-<p>
-  Bill - your laptop says hello. &nbsp; <i class="fas fa-laptop"></i>
-</p>
-<p>
-  This is an image in the asset pipeline.
-  <%= image_tag "crayons2.jpg", style: 'height:128px;'%>
-</p>
-
 
     </div>
   </div>
 </div>
 
 <%= javascript_pack_tag 'hello', 'data-turbolinks-track': 'reload' %>
-

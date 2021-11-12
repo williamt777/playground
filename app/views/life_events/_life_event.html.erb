@@ -1,8 +1,10 @@
 
 <li class="pb-3">
-  Id=<%= life_event.id %>,
-  User=<%= life_event.user.name %>,
   Date=<%= ux_happened_at_date(life_event) %>,
+  Id=<%= life_event.id %>,
+  <% if @user.blank? %>
+    For user=<%= life_event.user.name %>,
+  <% end %>
   Description=<span class="text-muted">"<%= life_event.description %>"</span>,
   &nbsp;
   [ <%= link_to 'Show', life_event %>

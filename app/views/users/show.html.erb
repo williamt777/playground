@@ -2,9 +2,9 @@
   <div class="row mt-5">
     <div class="col">
 
-<p id="notice"><%= notice %></p>
+<span id="notice"><%= notice %></span>
 
-<h2 class="mb-3">Show User</h2>
+<h3 class="mb-3">Show user</h3>
 
 <p>
   <strong>Name:</strong>
@@ -38,15 +38,25 @@
   </div>
 </p>
 
-<p>
+<p class="mt-4">
   <strong>Life events (<%= @user.life_events.count %>):</strong>
 </p>
+<p class="text-muted">
+  <% if @user.life_events.present? %>
+    Ordered by date
+  <% else %>
+    This user has no life events.
+  <% end %>
+</p>
 <ul>
-  <%= render @user.life_events %>
+  <%= render LifeEvent.all_for_user(@user) %>
 </ul>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Index', users_path %>
+<p class="mt-4">
+  <%= link_to 'Home', root_path %>
+  <i class="fa fa-angle-double-left text-muted px-2"></i>
+  <%= link_to 'All users', users_path %>
+</p>
 
     </div>
   </div>
