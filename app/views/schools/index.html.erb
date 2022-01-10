@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="mb-3">Schools</h1>
+
+<p class="text-muted">
+  There
+  <%= pluralize_is_are(@schools.count) %>
+  <%= pluralize( @schools.count, "school") %>.
+</p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Handle</th>
+      <th>Color</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schools.each do |each_school| %>
+      <tr>
+        <td><%= each_school.name %></td>
+        <td><%= each_school.handle %></td>
+        <td>
+          <span style="color: <%= each_school.color %>;"><%= each_school.color %></span>
+        </td>
+        <td>
+          <%= link_to 'Show', each_school %> &nbsp; | &nbsp;
+          <%= link_to 'Edit', edit_school_path(each_school) %> &nbsp; | &nbsp;
+          <%= link_to 'Destroy', each_school, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to '+ New school', new_school_path, class: "btn btn-outline-success" %>
+<br><br>
+<%= link_to '< Home', root_path %>
+
+    </div>
+  </div>
+</div>

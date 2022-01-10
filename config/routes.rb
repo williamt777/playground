@@ -12,10 +12,11 @@ Rails.application.routes.draw do
   end
 
   resources :life_events, only: [:show, :edit, :update, :destroy]
-
   resources :students
   resources :journals, only: [:index, :show]
   resources :journal_entries
+
+  resources :schools
 
   get 'import_csv', to: 'users#import_csv'
   patch 'import_csv', to: 'users#update_csv'

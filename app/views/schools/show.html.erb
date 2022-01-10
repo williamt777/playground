@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show School</h3>
+
+<p>
+  <strong>Name:</strong>
+  <%= @school.name %>
+</p>
+
+<p>
+  <strong>Handle:</strong>
+  <%= @school.handle %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <span style="color: <%= @school.color %>;"><%= @school.color %></span>
+</p>
+
+<%= link_to 'Edit', edit_school_path(@school) %>
+&nbsp; | &nbsp;
+<%= link_to 'All schools', schools_path %>
+
+    </div>
+  </div>
+</div>
