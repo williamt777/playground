@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_10_202755) do
+ActiveRecord::Schema.define(version: 2022_01_11_224827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 2022_01_10_202755) do
     t.integer "grade_level"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_students_on_school_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,10 +73,14 @@ ActiveRecord::Schema.define(version: 2022_01_10_202755) do
     t.text "comment"
     t.datetime "party_started_at"
     t.datetime "party_ended_at"
+    t.bigint "school_id"
+    t.index ["school_id"], name: "index_users_on_school_id"
   end
 
   add_foreign_key "journal_entries", "journals"
   add_foreign_key "journal_entries", "users"
   add_foreign_key "journals", "students"
   add_foreign_key "life_events", "users"
+  add_foreign_key "students", "schools"
+  add_foreign_key "users", "schools"
 end

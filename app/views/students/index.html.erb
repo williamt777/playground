@@ -18,6 +18,7 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th>School</th>
       <th>Email</th>
       <th>Grade level</th>
       <th>Actions</th>
@@ -28,6 +29,7 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.name %></td>
+        <td><%= student.school_id %></td>
         <td><%= student.email %></td>
         <td><%= student.grade_level %></td>
         <td>

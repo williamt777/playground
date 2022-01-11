@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'users#root'
+  root 'static_pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users do
@@ -27,5 +27,8 @@ Rails.application.routes.draw do
 
   get 'calendar_test', to: 'users#calendar_test'
   get 'my_calendar_test', to: 'users#my_calendar_test'
+
+  get 'hook', to: 'static_pages#hook'
+  get 'run_hook', to: 'static_pages#run_hook'
 
 end

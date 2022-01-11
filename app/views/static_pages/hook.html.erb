@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<span id="notice" class="text-info"><%= notice %></span>
+
+<!-- header: title -->
+<h3 class="mb-4">
+  Hook page
+</h3>
+
+<p>
+  Run a little code.
+</p>
+<p class="mx-5 text-muted">
+  Hook #1 - sets the (new) school attr for all students and all users to 1.
+</p>
+<p class="mx-5">
+  <%= link_to 'Run hook1', run_hook_path,
+              class: "btn btn-sm btn-outline-secondary disabled" %>
+</p>
+
+<br>
+
+<p>
+  <%= link_to '< Home', root_path %>
+</p>
