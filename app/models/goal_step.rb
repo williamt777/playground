@@ -1,0 +1,2 @@
+class GoalStep < ApplicationRecord
+end
