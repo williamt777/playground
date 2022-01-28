@@ -21,7 +21,6 @@ class CheckpointsController < ApplicationController
 
   # POST /checkpoints or /checkpoints.json
   def create
-    debugger
     @checkpoint = Checkpoint.new(checkpoint_params)
     @checkpoint.school = School.first
 
