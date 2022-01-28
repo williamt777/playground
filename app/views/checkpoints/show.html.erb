@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show Checkpoint</h3>
+
+<p>
+  <strong>Check at:</strong>
+  <%= @checkpoint.check_at %>
+</p>
+
+<p>
+  <strong>Duration days:</strong>
+  <%= @checkpoint.duration_days %>
+</p>
+
+<p>
+  <strong>Handle:</strong>
+  <%= @checkpoint.handle %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @checkpoint.description %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @checkpoint.school_id %>
+</p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @checkpoint.student_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_checkpoint_path(@checkpoint) %>
+&nbsp; | &nbsp;
+<%= link_to 'All checkpoints', checkpoints_path %>
+
+    </div>
+  </div>
+</div>

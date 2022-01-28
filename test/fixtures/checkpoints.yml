@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  check_at: 2022-01-28
+  duration_days: 1
+  handle: MyString
+  description: MyText
+  school: one
+  student: one
+
+two:
+  check_at: 2022-01-28
+  duration_days: 1
+  handle: MyString
+  description: MyText
+  school: two
+  student: two

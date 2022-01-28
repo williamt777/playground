@@ -1,9 +1,20 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
 <p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show goal</h3>
 
 <p>
   <strong>Name:</strong>
   <%= @goal.name %>
 </p>
 
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
+<%= link_to 'Edit', edit_goal_path(@goal) %>
+&nbsp; | &nbsp;
+<%= link_to 'All goals', goals_path %>
+
+    </div>
+  </div>
+</div>

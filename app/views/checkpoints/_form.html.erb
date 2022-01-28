@@ -1,0 +1,47 @@
+<%= form_with(model: checkpoint, local: true) do |form| %>
+
+  <% if checkpoint.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(checkpoint.errors.count, "error") %> prohibited this checkpoint from being saved:</h2>
+
+      <ul>
+        <% checkpoint.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- handle attr -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :check_at %>
+      <%= form.date_select :check_at %>
+    </div>
+  </div>
+
+  <!-- handle attr -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :handle %>
+      <%= form.text_field :handle, class: 'form-control' %>
+    </div>
+  </div>
+
+  <!-- description attr, a text box -->
+  <div class="form-row">
+    <div class="form-group col-md-9">
+      <%= form.label :description %>
+      <br>
+      <div>
+        <% num_rows = ux_textarea_rows(checkpoint.description, max_rows=5) %>
+        <%= form.text_area :description, rows: num_rows, class: 'form-control' %>
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Ok", class: "btn btn-outline-success" %>
+  </div>
+
+<% end %>

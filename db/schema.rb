@@ -10,21 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_20_205046) do
+ActiveRecord::Schema.define(version: 2022_01_28_175902) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "checkpoints", force: :cascade do |t|
+    t.date "check_at"
+    t.integer "duration_days", default: 1
+    t.string "handle"
+    t.text "description"
+    t.bigint "school_id"
+    t.bigint "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_checkpoints_on_school_id"
+    t.index ["student_id"], name: "index_checkpoints_on_student_id"
+  end
 
   create_table "goal_steps", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "checkpoint_id"
+    t.index ["checkpoint_id"], name: "index_goal_steps_on_checkpoint_id"
   end
 
   create_table "goals", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "checkpoint_id"
+    t.index ["checkpoint_id"], name: "index_goals_on_checkpoint_id"
   end
 
   create_table "journal_entries", force: :cascade do |t|
@@ -89,6 +106,10 @@ ActiveRecord::Schema.define(version: 2022_01_20_205046) do
     t.index ["school_id"], name: "index_users_on_school_id"
   end
 
+  add_foreign_key "checkpoints", "schools"
+  add_foreign_key "checkpoints", "students"
+  add_foreign_key "goal_steps", "checkpoints"
+  add_foreign_key "goals", "checkpoints"
   add_foreign_key "journal_entries", "journals"
   add_foreign_key "journal_entries", "users"
   add_foreign_key "journals", "students"

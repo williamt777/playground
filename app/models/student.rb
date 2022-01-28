@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
   belongs_to :school
   has_one :journal
+  has_many :checkpoints
 
   validates :school_id, presence: true
 

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :goal_steps
-  resources :goals
   root 'static_pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -19,6 +17,9 @@ Rails.application.routes.draw do
   resources :journal_entries
 
   resources :schools
+  resources :checkpoints
+  resources :goal_steps
+  resources :goals
 
   get 'import_csv', to: 'users#import_csv'
   patch 'import_csv', to: 'users#update_csv'
