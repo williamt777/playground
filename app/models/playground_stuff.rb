@@ -9,6 +9,11 @@ class PlaygroundStuff < ApplicationRecord
 
     # singleton is only created once!
     u1 = User.first
+    if u1.school.blank?
+      sch1 = School.create(name: "Tmp school", handle: "tmp", color: "black")
+      u1.school = sch
+      u1.save
+    end
     stu1 = u1.school.students.first
     s1 = PlaygroundStuff.create( fun_message: "Create singleton",
                                  user: u1, student: stu1)
