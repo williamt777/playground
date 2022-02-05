@@ -6,8 +6,9 @@
 
 <%= render 'form', school: @school %>
 
-<br>
-<%= link_to '< All schools', schools_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All schools', schools_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'New school', crumbs: bc1 %>
 
     </div>
   </div>

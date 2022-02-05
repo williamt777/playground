@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_28_175902) do
+ActiveRecord::Schema.define(version: 2022_01_29_194740) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,18 @@ ActiveRecord::Schema.define(version: 2022_01_28_175902) do
     t.index ["user_id"], name: "index_life_events_on_user_id"
   end
 
+  create_table "playground_stuffs", force: :cascade do |t|
+    t.string "fun_message"
+    t.bigint "school_id"
+    t.bigint "user_id"
+    t.bigint "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["school_id"], name: "index_playground_stuffs_on_school_id"
+    t.index ["student_id"], name: "index_playground_stuffs_on_student_id"
+    t.index ["user_id"], name: "index_playground_stuffs_on_user_id"
+  end
+
   create_table "schools", force: :cascade do |t|
     t.string "name"
     t.string "handle"
@@ -114,6 +126,9 @@ ActiveRecord::Schema.define(version: 2022_01_28_175902) do
   add_foreign_key "journal_entries", "users"
   add_foreign_key "journals", "students"
   add_foreign_key "life_events", "users"
+  add_foreign_key "playground_stuffs", "schools"
+  add_foreign_key "playground_stuffs", "students"
+  add_foreign_key "playground_stuffs", "users"
   add_foreign_key "students", "schools"
   add_foreign_key "users", "schools"
 end

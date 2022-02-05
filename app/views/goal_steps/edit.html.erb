@@ -6,9 +6,9 @@
 
 <%= render 'form', goal_step: @goal_step %>
 
-<br>
-<%= link_to 'Show', @goal_step %> |
-<%= link_to 'All goal steps', goal_steps_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All goal steps', goal_steps_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Edit goal steps', crumbs: bc1 %>
 
     </div>
   </div>

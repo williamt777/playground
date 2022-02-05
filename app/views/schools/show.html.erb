@@ -4,7 +4,7 @@
 
 <p id="notice"><%= notice %></p>
 
-<h3 class="mb-3">Show School</h3>
+<h3 class="mb-3 border-bottom">Show School</h3>
 
 <p>
   <strong>Name:</strong>
@@ -21,9 +21,9 @@
   <span style="color: <%= @school.color %>;"><%= @school.color %></span>
 </p>
 
-<%= link_to 'Edit', edit_school_path(@school) %>
-&nbsp; | &nbsp;
-<%= link_to 'All schools', schools_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All schools', schools_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Show school', crumbs: bc1 %>
 
     </div>
   </div>

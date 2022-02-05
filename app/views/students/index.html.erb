@@ -29,7 +29,7 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.name %></td>
-        <td><%= student.school_id %></td>
+        <td><%= student.school.handle %></td>
         <td><%= student.email %></td>
         <td><%= student.grade_level %></td>
         <td>
@@ -46,8 +46,9 @@
 
 <br>
 <%= link_to '+ New student', new_student_path, class: "btn btn-outline-success" %>
-<br><br>
-<%= link_to '< Home', root_path %>
+
+<!-- nav: breadcrumbs -->
+<%= render 'shared/breadcrumbs', cur_page: 'All students' %>
 
     </div>
   </div>

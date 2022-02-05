@@ -21,7 +21,25 @@
 
 <hr>
 
-<p class="mt-4">
+<p class="mt-4 mb-0">
+  Playground stuff:
+</p>
+<ul>
+  <li>
+    <i><%= @playground_stuff.fun_message %></i>
+  </li>
+  <li>
+    Current: <span class="font-weight-bold"><%= @playground_stuff.cur_user.name %></span> from
+    <span style="color: <%= @playground_stuff.cur_school.color %>;"><%= @playground_stuff.cur_school.name %></span>, student:
+    <%= @playground_stuff.cur_student&.name %>.
+  </li>
+  <li>
+    Edit:
+    <%= link_to 'Playground stuff', playground_stuffs_path %>
+  </li>
+</ul>
+
+<p class="mt-5">
   1. All index pages:
   &nbsp;
   <%= link_to 'All Schools', schools_path %>
@@ -35,8 +53,6 @@
   <%= link_to 'All Goal steps', goal_steps_path %>
   &nbsp; | &nbsp;
   <%= link_to 'All Checkpoints', checkpoints_path %>
-  &nbsp; | &nbsp;
-  <%= link_to 'All Journals', journals_path %>
 </p>
 
 <p class="mt-4">
@@ -60,6 +76,9 @@
 </p>
 <p>
   Run some hook code, <%= link_to 'Hook page', hook_path %>
+</p>
+<p>
+  Old - <%= link_to 'All Journals', journals_path %>
 </p>
 <p>
   Bill - your laptop says hello. &nbsp; <i class="fas fa-laptop"></i>

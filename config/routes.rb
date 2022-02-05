@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :playground_stuffs
   root 'static_pages#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -20,6 +21,8 @@ Rails.application.routes.draw do
   resources :checkpoints
   resources :goal_steps
   resources :goals
+
+  resources :playgroundstuffs, only: [:index, :show, :edit, :update]
 
   get 'import_csv', to: 'users#import_csv'
   patch 'import_csv', to: 'users#update_csv'

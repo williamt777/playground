@@ -11,9 +11,9 @@
   <%= @goal_step.name %>
 </p>
 
-<%= link_to 'Edit', edit_goal_step_path(@goal_step) %>
-&nbsp; | &nbsp;
-<%= link_to 'All goals', goal_steps_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All goal steps', goal_steps_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Show goal steps', crumbs: bc1 %>
 
     </div>
   </div>

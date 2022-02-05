@@ -6,8 +6,9 @@
 
 <%= render 'form', user: @user %>
 
-<br>
-<%= link_to '< All users', users_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All users', users_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'New user', crumbs: bc1 %>
 
     </div>
   </div>

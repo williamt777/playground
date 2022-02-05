@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h2 class="mb-4">Playground stuff</h2>
+
+<p class="mb-0 pb-0">
+  The rules:
+</p>
+<p class="mb-4 ml-4 text-muted">
+  The current user is never nil, and the default is user #1 (me). <br>
+  The current school is the current user's school. <br>
+  The current student is chosen from the current school.
+</p>
+
+<p>
+  <strong>Fun message:</strong>
+  <%= @playground_stuff.fun_message %>
+</p>
+
+<p>
+  <strong>Current user:</strong>
+  <%= @playground_stuff.cur_user.name %>
+</p>
+
+<p>
+  <strong>Current school:</strong>
+  <span style="color: <%= @playground_stuff.cur_school.color %>">
+    <%= @playground_stuff.cur_school.name %>
+  </span>
+</p>
+
+<p>
+  <strong>Current student:</strong>
+  <%= @playground_stuff.cur_student&.name %>
+</p>
+
+<br>
+<p>
+  <%= link_to 'Edit playground stuff', edit_playground_stuff_path(@playground_stuff) %>
+</p>
+
+<p class="mt-3">
+  <%= link_to '< Home', root_path %>
+</p>
+
+    </div>
+  </div>
+</div>

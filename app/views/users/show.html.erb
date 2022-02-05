@@ -17,6 +17,11 @@
 </p>
 
 <p>
+  <strong>School:</strong>
+  <%= @user.school.name %>
+</p>
+
+<p>
   <strong>Stars:</strong>
   <%= @user.stars %>
 </p>
@@ -52,11 +57,9 @@
   <%= render LifeEvent.all_for_user(@user) %>
 </ul>
 
-<p class="mt-4">
-  <%= link_to 'Home', root_path %>
-  <i class="fa fa-angle-double-left text-muted px-2"></i>
-  <%= link_to 'All users', users_path %>
-</p>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All users', users_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Show user', crumbs: bc1 %>
 
     </div>
   </div>

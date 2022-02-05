@@ -6,8 +6,9 @@
 
 <%= render 'form', goal: @goal %>
 
-<br>
-<%= link_to '< All goals', goals_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All goals', goals_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'New goal', crumbs: bc1 %>
 
     </div>
   </div>

@@ -28,10 +28,10 @@
   <%= render @student.journal.journal_entries %>
 </ul>
 
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All students', students_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Show student', crumbs: bc1 %>
 
-<%= link_to 'Edit', edit_student_path(@student) %>
-&nbsp; | &nbsp;
-<%= link_to 'All students', students_path %>
 
     </div>
   </div>

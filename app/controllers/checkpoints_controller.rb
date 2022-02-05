@@ -3,7 +3,8 @@ class CheckpointsController < ApplicationController
 
   # GET /checkpoints or /checkpoints.json
   def index
-    @checkpoints = Checkpoint.all
+    @checkpoints = Checkpoint.all_future_checkpoints
+    @past_checkpoints = Checkpoint.all_past_checkpoints
   end
 
   # GET /checkpoints/1 or /checkpoints/1.json

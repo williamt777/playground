@@ -1,0 +1,29 @@
+<!--
+  Partial: breadcrumbs - show page hierarchy for nav
+  cur_page - current page being visited (optional)
+  crumbs[] - array of breadcrumbs, ["text", url,...] (optional)
+-->
+
+<!-- breadcrumbs array: default is empty -->
+<% crumbs = [] if local_assigns[:crumbs].nil? %>
+<% cur_page = "" if local_assigns[:cur_page].nil? %>
+
+<p class="mt-5 text-muted">
+
+  <!-- first crumb is home -->
+  <%= link_to root_path do %>
+    <i class="fa fa-home"></i> Home
+  <% end %>
+
+  <!-- inner crumbs: walk through the array of crumbs -->
+  <% loop_index = 0 %>
+  <% while loop_index < crumbs.length %>
+    / <%= link_to crumbs[loop_index], crumbs[loop_index+1] %>
+    <% loop_index += 2 %>
+  <% end %>
+
+  <!-- last crumb is current page -->
+  <% if cur_page.present? %>
+    / <%= cur_page %>
+  <% end %>
+</p>

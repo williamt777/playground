@@ -15,11 +15,10 @@
 
 <%= render 'form', user: @user %>
 
-<p class="mt-4">
-  <%= link_to 'Home', root_path %>
-  <i class="fa fa-angle-double-left text-muted px-2"></i>
-  <%= link_to 'All users', users_path %>
-</p>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All users', users_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'Edit user', crumbs: bc1 %>
+
 
     </div>
   </div>

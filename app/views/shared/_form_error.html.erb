@@ -1,0 +1,16 @@
+<!--
+  Partial: form_error - reports any form errors found in the object
+  the_object - the focus of the form
+-->
+
+<% if the_object.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(the_object.errors.count, "error") %> prohibited this object from being saved:</h2>
+
+    <ul>
+      <% the_object.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

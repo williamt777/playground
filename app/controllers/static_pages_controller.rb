@@ -1,6 +1,8 @@
 class StaticPagesController < ApplicationController
 
-  def home; end
+  def home
+    @playground_stuff = PlaygroundStuff.the_singleton
+  end
 
   def hook; end
 

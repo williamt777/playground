@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+
+<p id="notice"><%= notice %></p>
+
+<h3 class="mb-3">Show playground stuff</h3>
+
+<p>
+  <strong>Fun message:</strong>
+  <%= @playground_stuff.fun_message %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= PlaygroundStuff.current_user.name %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= PlaygroundStuff.current_school.name %>
+</p>
+
+
+<p>
+  <strong>Student:</strong>
+  <%= PlaygroundStuff.current_student.name %>
+</p>
+
+<%= link_to 'Edit', edit_playground_stuff_path(@playground_stuff) %> |
+<%= link_to 'Playground stuff', playground_stuffs_path %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<%= form_with(model: playground_stuff, local: true) do |form| %>
+
+  <%= render 'shared/form_error', the_object: playground_stuff %>
+
+  <!-- attr: fun_message -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :fun_message %>
+      <%= form.text_field :fun_message, class: 'form-control' %>
+    </div>
+  </div>
+
+  <!-- attr: user id -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :user_id %>
+      <%= form.select :user_id, @users.map{ |c| [c.name, c.id]},
+                                { }, { :class => 'form-control' } %>
+    </div>
+  </div>
+
+  <!-- attr: school id -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :school_ignore %>
+      <%= form.text_field :school_ignore, :readonly => 'readonly',
+                          value: playground_stuff.cur_school.name,
+                          class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="actions mt-4">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<br>
+<hr>
+<br>
+
+<%= form_with(model: playground_stuff, local: true) do |form| %>
+
+  <%= render 'shared/form_error', the_object: playground_stuff %>
+
+  <!-- attr: student id -->
+  <div class="form-row">
+    <div class="col-6 form-group">
+      <%= form.label :student_id %>
+      <%= form.select :student_id, @students.map{ |c| [c.name, c.id]},
+                                  { }, { :class => 'form-control' } %>
+    </div>
+  </div>
+
+  <div class="actions mt-4">
+    <%= form.submit "Change student", class: "btn btn-outline-secondary" %>
+  </div>
+
+<% end %>
