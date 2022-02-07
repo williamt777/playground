@@ -5,7 +5,11 @@
   <td class="d-none d-lg-table-cell"><%= user.email %></td>
   <td id="stars-<%= user.id %>"><%= user.stars %></td>
   <td class="d-none d-lg-table-cell text-play-sm">
-    <%= user.party_started_at.strftime("%m/%d/%Y %H:%M") %>
+    <% if user.party_started_at %>
+      <%= user.party_started_at.strftime("%m/%d/%Y %H:%M") %>
+    <% else %>
+      Bill: BAD party_started_at, it's missing!
+    <% end %>
   </td>
   <td class="text-play-sm text-muted">
     [
