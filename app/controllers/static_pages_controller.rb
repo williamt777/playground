@@ -32,7 +32,7 @@ class StaticPagesController < ApplicationController
     arr2 = []
     User.all.each do |each_user|
       if each_user.school.blank?
-        arr2.each_user.name
+        arr2.push each_user.name
         each_user.school = sch1
         each_user.save
       end
