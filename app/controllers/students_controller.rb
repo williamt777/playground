@@ -13,10 +13,12 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @schools = School.all_schools
   end
 
   # GET /students/1/edit
   def edit
+    @schools = School.all_schools
   end
 
   # POST /students or /students.json
@@ -64,6 +66,6 @@ class StudentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def student_params
-      params.require(:student).permit(:name, :email, :grade_level)
+      params.require(:student).permit(:name, :email, :grade_level, :school_id)
     end
 end

@@ -21,12 +21,19 @@
   <%= @student.grade_level %>
 </p>
 
+<% if @student.journal %>
 <p>
   <strong>Journal entries (<%= @student.journal.journal_entries.count %>):</strong>
 </p>
 <ul>
   <%= render @student.journal.journal_entries %>
 </ul>
+<% else %>
+<p>
+  Student journal is nil.
+  <span class="text-muted">(@student.journal)</span>
+</p>
+<% end %>
 
 <!-- nav: breadcrumbs -->
 <% bc1 = ['All students', students_path] %>

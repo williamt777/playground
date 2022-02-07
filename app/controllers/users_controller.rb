@@ -64,6 +64,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    debugger
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -191,7 +192,9 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :school_id, :stars, :comment)
+      params.require(:user)
+            .permit(:name, :email, :school_id, :stars, :comment,
+                    :party_started_at, :party_start_time, :party_duration)
     end
 
     def update_blather(the_date)

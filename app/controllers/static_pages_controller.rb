@@ -7,8 +7,33 @@ class StaticPagesController < ApplicationController
   def hook; end
 
   def run_hook
-    hook_msg = hook1
+    hook_msg = hook2
     redirect_to hook_path, notice: hook_msg
+  end
+
+  private
+
+  # returns students and users that don't have a school (and therefore
+  # break The Playground)
+  def hook2
+    arr1 = []
+    Student.all.each do |each_student|
+      if each_student.school.blank?
+        arr1.push each_student.name
+      end
+    end
+    str1 = "Students without a school: "
+    str1 += arr1.to_s
+
+    arr2 = []
+    User.all.each do |each_user|
+      if each_user.school.blank?
+        arr2.push each_user.name
+      end
+    end
+    str1 += "; Users without a school: "
+    str1 += arr2.to_s
+    str1
   end
 
   # make sure each student and user has a non-nil school
@@ -38,7 +63,7 @@ class StaticPagesController < ApplicationController
     # construct and return helpful hook message
     msg = "hook1: updated school for " + helpers.pluralize(num_students, "student") +
           ", " + helpers.pluralize(num_users, "user")
-    return msg
+    msg
   end
 
 end
