@@ -16,22 +16,28 @@ class StaticPagesController < ApplicationController
   # returns students and users that don't have a school (and therefore
   # break The Playground)
   def hook2
+    sch1 = School.first
+
     arr1 = []
     Student.all.each do |each_student|
       if each_student.school.blank?
         arr1.push each_student.name
+        each_student.school = sch1
+        each_student.save
       end
     end
-    str1 = "Students without a school: "
+    str1 = "Missing a school - Fixed these STUDENTS: "
     str1 += arr1.to_s
 
     arr2 = []
     User.all.each do |each_user|
       if each_user.school.blank?
-        arr2.push each_user.name
+        arr2.each_user.name
+        each_user.school = sch1
+        each_user.save
       end
     end
-    str1 += "; Users without a school: "
+    str1 += "; Fixed these USERS too: "
     str1 += arr2.to_s
     str1
   end
