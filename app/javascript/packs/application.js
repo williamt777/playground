@@ -40,6 +40,13 @@ document.addEventListener("turbolinks:load", () => {
     defaultMinute: 0
   });
 
+  /* User: new/edit form */
+  flatpickr("#check-date", {
+    altInput: true,
+    altFormat: "D M j, Y",
+    dateFormat: "Y-m-d",
+  });
+
 })
 
 require("custom/hello2")

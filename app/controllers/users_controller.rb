@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy,
                                   :increment, :clear, :new_life_event]
 
-  # GET /
+  # GET /root
   def root
   end
 
@@ -64,17 +64,19 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    debugger
     @user = User.new(user_params)
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    # update party start and end times
+    dt_hash = ux_calc_party_times(params[:user][:party_started_at],
+                                  params[:user][:party_start_time],
+                                  params[:user][:party_duration])
+    @user.party_started_at = dt_hash[:start]
+    @user.party_ended_at = dt_hash[:end]
+
+    if @user.save
+      redirect_to @user, notice: 'User was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -193,8 +195,7 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user)
-            .permit(:name, :email, :school_id, :stars, :comment,
-                    :party_started_at, :party_start_time, :party_duration)
+            .permit(:name, :email, :school_id, :stars, :comment)
     end
 
     def update_blather(the_date)

@@ -6,8 +6,9 @@
 
 <%= render 'form', checkpoint: @checkpoint %>
 
-<br>
-<%= link_to '< All checkpoints', checkpoints_path %>
+<!-- nav: breadcrumbs -->
+<% bc1 = ['All checkpoints', checkpoints_path] %>
+<%= render 'shared/breadcrumbs', cur_page: 'New checkpoint', crumbs: bc1 %>
 
     </div>
   </div>

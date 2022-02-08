@@ -1,22 +1,22 @@
 <%= form_with(model: checkpoint, local: true) do |form| %>
 
-  <% if checkpoint.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(checkpoint.errors.count, "error") %> prohibited this checkpoint from being saved:</h2>
+  <%= render 'shared/form_error', the_object: checkpoint %>
 
-      <ul>
-        <% checkpoint.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<style>
+  .bg-white-flatpickr { background-color: white !important; }
+</style>
 
-  <!-- attr: check_at date -->
+  <!-- attr: checked_at date, uses flatpickr -->
   <div class="form-row">
     <div class="col-6 form-group">
       <%= form.label :check_at %>
-      <%= form.date_select :check_at %>
+      <div class="input-group mb-3">
+        <%= form.text_field :check_at, id: 'check-date',
+                            class: 'form-control bg-white-flatpickr' %>
+        <div class="input-group-append">
+          <span class="input-group-text" id="basic-addon2"><i class="far fa-calendar-alt"></i></span>
+        </div>
+      </div>
     </div>
   </div>
 
